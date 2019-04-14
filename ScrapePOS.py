@@ -15,13 +15,13 @@ page = urlopen("https://en.wikipedia.org/wiki/" + search_term)
 soup = bs(page, 'html.parser')
 text = ''
 
+for p in soup.find_all('p'):
+	text += p.get_text()
+
 print()
 print('===================')
 print('ARTICLE')
 print('===================')
-
-for p in soup.find_all('p'):
-	text += p.get_text()
 
 print(text)
 
